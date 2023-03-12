@@ -6,7 +6,12 @@ fn index() -> &'static str {
     "Hello, from a rusty web server!. This is working"
 }
 
+#[get("/hi")]
+fn hello() -> &'static str {
+    "Hehe boi"
+}
+
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![index])
+    rocket::build().mount("/", routes![hello])
 }
